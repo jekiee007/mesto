@@ -1,0 +1,15 @@
+.profile__avatar_specialization {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  max-width: 580px;
+  margin: 16px 0;
+  color: #fff;
+  grid-column-start: 1;
+   grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3; 
+  margin: 0;
+  /* align-self: flex-end; */
+}

@@ -1,0 +1,24 @@
+.places {
+  display: grid;
+  max-width: 880px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-template-rows: repeat(auto-fit, 361px);
+  border-radius: 10px;
+  gap: 20px 17px;
+  grid-auto-flow: initial;
+}
+
+@media screen and (max-width: 879px) {
+  .places {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .places {
+    display: flex;
+    flex-direction: column;
+    max-width: 380px;
+  }
+}
