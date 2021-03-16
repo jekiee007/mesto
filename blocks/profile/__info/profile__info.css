@@ -3,7 +3,9 @@
   max-width: 580px;
   max-height: 73px;
   grid-template-columns: max-content 24px;
-  grid-template-rows: 42px 16px;
+  grid-template-rows: 39px 18px;
   gap: 16px 18px;
-  margin: auto 0 auto 30px;
+  margin: auto auto auto 30px;
+  text-overflow: ellipsis;
+  
 }

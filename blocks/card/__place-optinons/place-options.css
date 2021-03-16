@@ -1,0 +1,10 @@
+.place-options{
+    display: grid;
+    /* width: 246px; */
+    justify-content: end;
+    height: 23px;
+    grid-template-columns: 224px 22px;
+    grid-template-rows: minmax(23px) ;
+    margin: auto 15px 31px 21px;
+    gap: 0;
+}

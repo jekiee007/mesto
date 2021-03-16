@@ -1,0 +1,15 @@
+.card__like {
+    margin: 0;
+    width: 21px;
+    height: 19px;
+    align-self: center;
+    transition: opacity 0.3s ease;
+}
+
+.card__like:hover{
+    opacity: 0.5;
+}
+
+.card__like:active{
+    background-color: black;
+}
