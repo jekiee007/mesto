@@ -8,8 +8,18 @@
   max-width: 538px;
   text-overflow: ellipsis;
   overflow: hidden;
-  align-self:baseline;
+  align-self: baseline;
   white-space: nowrap;
 }
 
-/* @media screen  */
+@media screen and (max-width: 597px) {
+  .profile__avatar_name {
+    margin: 26px 0 0;
+    max-width: 320px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+  }
+}
