@@ -14,8 +14,6 @@
 
 @media screen and (max-width: 597px) {
   .profile__avatar_name {
-    margin: 26px 0 0;
-    max-width: 320px;
     font-style: normal;
     font-weight: 500;
     font-size: 27px;

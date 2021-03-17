@@ -6,3 +6,13 @@
     justify-content: space-between;
     border-bottom: 1px solid #545454;
 }
+
+@media screen and (max-width: 597px) {
+    .header {
+        position: relative;
+        width: 320px;
+        height: 56px;
+        margin: 28px auto 0;
+        left: calc((282px - 320px) / 2);
+    }
+}

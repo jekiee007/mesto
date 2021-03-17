@@ -9,9 +9,20 @@
   text-overflow: ellipsis;
 }
 
+@media screen and (max-width: 896px) {
+  .profile__info {
+    margin: auto;
+    max-width: 294px;
+  }
+}
+
 @media screen and (max-width: 597px) {
   .profile__info {
+    max-width: 189px;
+    max-height: 54px;
+    grid-template-columns: 189px 18px;
+    grid-template-rows: 26px 14px;
+    gap: 14px 10px;
     margin: 26px auto 0;
-    max-width: 320px;
   }
 }

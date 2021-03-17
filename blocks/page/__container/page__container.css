@@ -5,6 +5,12 @@
   color: #fff;
 }
 
+@media screen and (max-width: 896px) {
+  .page__container {
+    max-width: 581px;
+  }
+}
+
 @media screen and (max-width: 597px) {
   .page__container {
     max-width: 282px;

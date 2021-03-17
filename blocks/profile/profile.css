@@ -6,6 +6,14 @@
   /* justify-content: space-between; */
 }
 
+@media screen and (max-width: 896px) {
+  .profile {
+    flex-direction: column;
+    max-width: 581px;
+    height: 281px;
+  }
+}
+
 @media screen and (max-width: 597px) {
   .profile {
     flex-direction: column;
