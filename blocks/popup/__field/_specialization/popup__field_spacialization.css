@@ -1,0 +1,15 @@
+.popup__field_spacialization {
+  height: 27px;
+  margin: 28px auto 0;
+  width: 354px;
+  border: unset;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.popup__field_spacialization::placeholder {
+  color: #000;
+  opacity: 1;
+}

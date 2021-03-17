@@ -1,6 +1,7 @@
 .header {
     max-width: 880px;
-    margin: 45px auto 0 auto;
+    padding: 45px 0 0;
+    /* margin: 45px auto 0 auto; */
     display: flex;
     max-height: 74px;
     justify-content: space-between;
@@ -12,7 +13,7 @@
         position: relative;
         width: 320px;
         height: 56px;
-        margin: 28px auto 0;
+        padding: 28px 0 0;
         left: calc((282px - 320px) / 2);
     }
 }
