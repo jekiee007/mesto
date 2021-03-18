@@ -1,6 +1,6 @@
 .popup__field_spacialization {
   height: 27px;
-  margin: 28px auto 0;
+  margin: 30px auto 0;
   width: 358px;
   border: unset;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -13,4 +13,11 @@
 .popup__field_spacialization::placeholder {
   color: #000;
   opacity: 1;
+}
+
+@media screen and (max-width: 597px) {
+  .popup__field_spacialization {
+    width: 238px;
+    margin: 30px auto 0;
+  }
 }

@@ -26,6 +26,6 @@
 @import url("../blocks/card/__image/card__image.css");
 @import url("../blocks/card/__place-name/card__place-name.css");
 @import url("../blocks/card/__like/card__like.css");
-@import url("../blocks/card/__place-optinons/card__place-options.css");
+@import url("../blocks/card/__place-options/card__place-options.css");
 
 @import url("../blocks/footer/footer.css");

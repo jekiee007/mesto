@@ -9,3 +9,10 @@
   border-radius: 10px;
   position: relative;
 }
+
+@media screen and (max-width: 597px) {
+  .popup__profile-editor {
+    width: 282px;
+    height: 322px;
+  }
+}
