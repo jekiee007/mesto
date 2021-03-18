@@ -1,13 +1,15 @@
 .popup__field_name {
   /* align-self: center; */
   height: 27px;
-  width: 354px;
+  width: 358px;
   margin: auto 0 0;
   border: unset;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  box-sizing: border-box;
+
 }
 
 .popup__field_name::placeholder {
