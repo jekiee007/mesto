@@ -33,6 +33,7 @@
 
 @media screen and (max-width: 597px) {
   .profile__avatar_specialization {
+    max-width: 221px;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
