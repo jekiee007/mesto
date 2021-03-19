@@ -1,4 +1,4 @@
-.popup__field_spacialization {
+.popup__field_job {
   height: 27px;
   margin: 30px auto 0;
   width: 358px;
@@ -10,13 +10,13 @@
   box-sizing: border-box;
 }
 
-.popup__field_spacialization::placeholder {
+.popup__field_job::placeholder {
   color: #000;
   opacity: 1;
 }
 
 @media screen and (max-width: 597px) {
-  .popup__field_spacialization {
+  .popup__field_job {
     width: 238px;
     margin: 30px auto 0;
   }
