@@ -3,8 +3,6 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  max-width: 570px;
-  /* margin: 16px 0; */
   color: #fff;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -16,7 +14,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
   align-self: center;
-  /* align-self: flex-end; */
 }
 
 @media screen and (max-width: 896px) {
