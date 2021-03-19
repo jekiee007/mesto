@@ -1,25 +1,182 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="pages/index.css">
     <title>Место</title>
 </head>
 
-<body>
-    <header>
+<!-- тест -->
 
-    </header>
+<body class="page">
+    <form class="popup popup_closed">
+        <div class="popup__profile-editor">
+            <div class="popup__close"></div>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <div class="popup__field">
+                <input class="popup__field_name" placeholder="Кусто"></input>
+                <input class="popup__field_spacialization" placeholder="Исследователь"></input>
+            </div>
+            <button class="popup__button-submit" >Cохранить</button>
+        </div>
+    </form>
+    <div class="page__container">
+        <header class="header">
+            <img src="./images/logo__mesto.svg" alt="Лого место" class="header__logo">
+        </header>
+
+        <main>
+
+            <section class="profile">
+                <img src="./images/profile__image.jpg" alt="Фото профиля" class="profile__avatar">
+                <div class="profile__info">
+                    <p class="profile__avatar_name">Жак-Ив Кусто</p>
+                    <button class="profile__info_edit-button"></button>
+                    <p class="profile__avatar_specialization">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+
+            <section class="places">
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Карачаевск</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Гора Эльбрус</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Гора Эльбрус</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
+                        class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Карачаево-Черкессия</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Гора Эльбрус</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
+                        class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Карачаево-Черкессия</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div> <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Гора Эльбрус</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
+                        class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Карачаево-Черкессия</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div> <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Гора Эльбрус</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Домбай</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
+                        class="card__image">
+                    <div class="card__place-options">
+                        <p class="card__place-name">Карачаево-Черкессия</p>
+                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&#169 2021 Mesto Russia</p>
+        </footer>
+    </div>
+    <script src="./script/index.js"></script>
 </body>
-
-<main>
-
-</main>
-
-<footer>
-
-</footer>
 
 </html>
