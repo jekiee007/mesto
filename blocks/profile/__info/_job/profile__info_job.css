@@ -1,4 +1,4 @@
-.profile__avatar_specialization {
+.profile__info_job {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -20,8 +20,7 @@
 }
 
 @media screen and (max-width: 896px) {
-  .profile__avatar_specialization {
-    margin: auto;
+  .profile__info_job {
     align-self: center;
     max-width: 294px;
     grid-column-start: auto;
@@ -32,7 +31,7 @@
 }
 
 @media screen and (max-width: 597px) {
-  .profile__avatar_specialization {
+  .profile__info_job {
     max-width: 221px;
     font-weight: 500;
     font-size: 14px;
