@@ -12,10 +12,6 @@ let popupExitBtn = formElement.querySelector('.popup__close');
 let popupNameInput = formElement.querySelector('.popup__field_name');
 let popupSpecializationInput = formElement.querySelector('.popup__field_spacialization');
 
-console.log(nameInput.textContent);
-console.log(jobInput.textContent);
-
-
 profileInfoEditBtn.addEventListener('click', function () {
 
     formElement.classList.remove('popup_closed');
