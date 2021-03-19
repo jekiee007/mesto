@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 896px) {
   .profile__avatar_specialization {
-    margin: auto;
+    margin: auto 0;
     align-self: center;
     max-width: 294px;
     grid-column-start: auto;
