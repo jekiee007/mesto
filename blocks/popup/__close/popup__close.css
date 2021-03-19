@@ -2,7 +2,7 @@
   position: absolute;
   background-position: center;
   background-size: 100%;
-  background-image: url("/images/button__add-place.svg");
+  background-image: url("../../../images/button__add-place.svg");
   width: 44px;
   height: 44px;
   top: -42px;
