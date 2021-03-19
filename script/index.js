@@ -4,13 +4,13 @@ let profile = document.querySelector('.profile');
 
 let profileInfoEditBtn = profile.querySelector('.profile__info_edit-button');
 
-let nameInput = profile.querySelector('.profile__avatar_name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = profile.querySelector('.profile__avatar_specialization'); // Воспользуйтесь инструментом .querySelector()
+let nameInput = profile.querySelector('.profile__info_name'); // Воспользуйтесь инструментом .querySelector()
+let jobInput = profile.querySelector('.profile__info_job'); // Воспользуйтесь инструментом .querySelector()
 
 // let popupSubmitBtn = formElement.querySelector('.popup__button-submit');
 let popupExitBtn = formElement.querySelector('.popup__close');
 let popupNameInput = formElement.querySelector('.popup__field_name');
-let popupSpecializationInput = formElement.querySelector('.popup__field_spacialization');
+let popupJobInput = formElement.querySelector('.popup__field_job');
 
 profileInfoEditBtn.addEventListener('click', function () {
 
@@ -18,7 +18,7 @@ profileInfoEditBtn.addEventListener('click', function () {
     formElement.classList.add('popup_opened');
 
     popupNameInput.value = nameInput.textContent;
-    popupSpecializationInput.value = jobInput.textContent;
+    popupJobInput.value = jobInput.textContent;
 });
 
 popupExitBtn.addEventListener('click', function () {
@@ -35,10 +35,10 @@ function formSubmitHandler(evt) {
 
     // Получите значение полей jobInput и nameInput из свойства value
     popupNameInput.textContent = popupNameInput.value;
-    popupSpecializationInput.textContent = popupSpecializationInput.value;
+    popupJobInput.textContent = popupSpecializationInput.value;
     // Выберите элементы, куда должны быть вставлены значения полей
     nameInput.textContent = popupNameInput.value;
-    jobInput.textContent = popupSpecializationInput.value;
+    jobInput.textContent = popupJobInput.value;
 
 
     // Вставьте новые значения с помощью textContent
