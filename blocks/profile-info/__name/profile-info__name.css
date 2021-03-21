@@ -13,7 +13,7 @@
   }
   
   @media screen and (max-width: 597px) {
-    .profile-info_name {
+    .profile-info__name {
       font-style: normal;
       font-weight: 500;
       font-size: 27px;

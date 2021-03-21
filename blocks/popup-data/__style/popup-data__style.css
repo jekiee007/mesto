@@ -1,6 +1,7 @@
-.popup-input__job {
+.popup-data__style {
+    display: flex;
+    flex-direction: column;
     height: 27px;
-    margin: 30px auto 0;
     width: 358px;
     border: unset;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -10,15 +11,18 @@
     box-sizing: border-box;
   }
   
-  .popup-input__job::placeholder {
+  .popup-data__style::placeholder {
     color: #000;
     opacity: 1;
   }
+
+  .popup-data__style:nth-child(n + 2){
+    margin: 30px auto 0;
+  }
   
   @media screen and (max-width: 597px) {
-    .popup-input__job {
+    .popup-data__style {
       width: 238px;
-      margin: 30px auto 0;
     }
   }
   
