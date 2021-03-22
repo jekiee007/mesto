@@ -8,9 +8,9 @@
 @import url("../blocks/popup/__close/popup__close.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup-data/popup-data.css");
-@import url("../blocks/popup-data/__input_job/popup-data__input_job.css");
-@import url("../blocks/popup-data/__input_name/popup-data__input_name.css");
-@import url("../blocks/popup-data/__style/popup-data__style.css");
+@import url("../blocks/popup-data/__input/_job/popup-data__input_job.css");
+@import url("../blocks/popup-data/__input/_name/popup-data__input_name.css");
+@import url("../blocks/popup-data/__input/popup-data__input.css");
 
 
 @import url("../blocks/page/page.css");
