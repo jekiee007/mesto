@@ -2,7 +2,6 @@
     display: grid;
     justify-content: end;
     grid-template-columns: 224px 22px;
-    /* grid-template-rows: minmax(23px); */
     margin: 25px 15px 26px 21px;
     gap: 0;
 }
