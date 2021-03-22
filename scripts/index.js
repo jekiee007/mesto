@@ -8,14 +8,14 @@ let jobInput = profile.querySelector(".profile-info__job");
 
 let popupExitBtn = formElement.querySelector(".popup__close");
 
-let popupNameInput = formElement.querySelector(".popup-data__input_name");
-let popupJobInput = formElement.querySelector(".popup-data__input_job");
+let popupNameInput = formElement.querySelector(".popup-data__input_type_name");
+let popupJobInput = formElement.querySelector(".popup-data__input_type_job");
 
 function openPopup() {
-  formElement.classList.add("popup_opened");
-
   popupNameInput.value = nameInput.textContent;
   popupJobInput.value = jobInput.textContent;
+
+  formElement.classList.add("popup_opened");
 }
 
 function closePopup() {
@@ -28,7 +28,7 @@ function formSubmitHandler(evt) {
   nameInput.textContent = popupNameInput.value;
   jobInput.textContent = popupJobInput.value;
 
-  formElement.classList.remove("popup_opened");
+  closePopup();
 }
 
 profileInfoEditBtn.addEventListener("click", openPopup); //открыть попап
