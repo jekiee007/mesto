@@ -1,6 +1,6 @@
 .popup__button-submit {
   padding: unset;
-  margin: 52px auto auto;
+  margin: 52px auto 37px;
   width: 358px;
   height: 50px;
   color: #fff;
@@ -28,7 +28,7 @@
   .popup__button-submit {
     width: 238px;
     height: 46px;
-    margin: 45px auto 0;
+    margin: 45px auto 25px;
     font-size: 14px;
     line-height: 17px;
   }
