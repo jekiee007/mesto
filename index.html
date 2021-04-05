@@ -32,7 +32,7 @@
             </section>
 
             <section class="places">
-                <div class="card">
+                <!-- <div class="card">
                     <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="card__image">
                     <div class="card__place-options">
                         <h2 class="card__place-name">Карачаевск</h2>
@@ -74,7 +74,7 @@
                         <h2 class="card__place-name">Карачаево-Черкессия</h2>
                         <button class="card__like" type="button"></button>
                     </div>
-                </div>
+                </div> -->
 
             </section>
         </main>
@@ -83,6 +83,8 @@
             <p>&copy; 2021 Mesto Russia</p>
         </footer>
     </div>
+
+    <!-- попап профиля-->
     <article class="popup">
         <div class="popup__profile-editor">
             <button class="popup__close" type="button"></button>
@@ -94,6 +96,38 @@
             </form>
         </div>
     </article>
+
+    <!-- попап карточки -->
+    <div class="popup" id="cardCreator">
+        <div class="popup__card-editor">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup-data" name="popupForm">
+                <input class="popup-data__input popup-data__input_type_title" name="popupTypeTitle"
+                    placeholder="Название">
+                <input class="popup-data__input popup-data__input_type_url" name="popupTypeURL"
+                    placeholder="Ссылка на картинку">
+                <!-- <button class="popup__button-submit popup__button-submit_new-card" type="submit">Создать</button> -->
+                <button class="popup__button-submit " type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- "место" - карточка -->
+    <template id="placeCard">
+        <div class="card">
+            <button type="button" class="card__remove"></button>
+            <img src="#" alt="#" class="card__image">
+            <div class="card__place-options">
+                <h2 class="card__place-name"></h2>
+                <button type="button" class="card__like"></button>
+            </div>
+        </div>
+    </template>
+
+    <!-- "место" - увеличинная фотография -->
+
+
     <script src="./scripts/index.js"></script>
 </body>
 
