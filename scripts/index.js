@@ -14,7 +14,7 @@ let placeCard = document.querySelector("#placeCard");
 
 let cardContainer = document.querySelector(".places");
 
-let newPlace = document.querySelector("#cardCreator");
+let newPlace = document.querySelector("#popupCardCreator");
 
 let popupCardExitBtn = newPlace.querySelector(".popup__close");
 let addNewCard = document.querySelector(".popup__card-editor");
@@ -22,30 +22,41 @@ let addNewCard = document.querySelector(".popup__card-editor");
 let popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
 let popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
 
+let popupImage = document.querySelector("#popupImage");
+let popupZoomedImage = popupImage.querySelector(".popup__zoomed-picture");
+let popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
+
 // хардкод карточек (сугубо для проверки :) )
-const initialCards = [{
+const initialCards = [
+  {
     name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
   {
     name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
   },
   {
     name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
   },
   {
     name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
   },
   {
     name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
   },
   {
     name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
 
@@ -62,16 +73,37 @@ function createNewCard(item) {
   cardImage.alt = item.name;
   cardImage.src = item.link;
 
-  cardRemoveBtn.addEventListener("click", evt => evt.target.closest(".card").remove());
-  
-  likeBtn.addEventListener("click", evt => evt.target.classList.toggle("card__like_active"));
+  cardImage.addEventListener("click", () => {
+    popupImageOpen(item);
+  });
+
+  cardRemoveBtn.addEventListener("click", (evt) =>
+    evt.target.closest(".card").remove()
+  );
+
+  likeBtn.addEventListener("click", (evt) =>
+    evt.target.classList.toggle("card__like_active")
+  );
 
   return newCard;
 }
 
+// попап увеличенной картинки
+function popupImageOpen(item) {
+  console.log(item);
+  console.log(popupImage);
+
+  popupZoomedImage.src = item.link;
+  popupZoomedImage.alt = item.name;
+
+  popupPictureCaption.value = item.name;
+
+  popupImage.classList.add("popup__opened");
+}
+
 // инициализация карточки
 function initCard() {
-  let card = initialCards.map(item => createNewCard(item));
+  let card = initialCards.map((item) => createNewCard(item));
 
   cardContainer.append(...card);
 }
@@ -116,15 +148,10 @@ function createOneMoreCard(evt) {
   let placeTitle = popupCardTitle.value;
   let placeURL = popupCardURL.value;
 
-console.log(placeTitle);
-console.log(placeURL);
-
   let oneMoreCard = createNewCard({
     name: placeTitle,
-    link: placeURL
+    link: placeURL,
   });
-
-  console.log(oneMoreCard);
 
   cardContainer.prepend(oneMoreCard);
   closePopup();

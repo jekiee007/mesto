@@ -1,7 +1,6 @@
 .card__remove {
   padding: 0;
   align-self: flex-end;
-  /* margin: 18px 15px 0 0; */
   z-index: 1;
   width: 22px;
   height: 19px;
@@ -9,7 +8,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: none;
+  border: unset;
   background-color: transparent;
   transition: 0.2s;
   position: absolute;

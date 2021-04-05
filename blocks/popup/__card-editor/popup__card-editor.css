@@ -1,5 +1,5 @@
-.popup__card-editor{
-    display: flex;
+.popup__card-editor {
+  display: flex;
   flex-direction: column;
   width: 430px;
   align-self: center;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 597px) {
-    .popup__card-editor {
-      width: 282px;
-    }
+  .popup__card-editor {
+    width: 282px;
   }
+}
