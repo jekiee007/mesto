@@ -17,6 +17,10 @@
   opacity: 0.6;
 }
 
+.profile-info__edit-button:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 597px) {
   .profile-info__edit-button {
     width: 18px;
