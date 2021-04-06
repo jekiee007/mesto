@@ -127,11 +127,6 @@ function openPopup() {
 
 // закрыть попап без сохранения изменений
 function closePopup() {
-  // if (formElement.classList.value === "popup popup_opened") {
-  //   formElement.classList.remove("popup_opened");
-  // } else if (newPlace.classList.value === "popup popup_opened"){
-  //   newPlace.classList.remove("popup_opened")
-  // } else popupImage.classList.remove("popup_opened");
   switch ("popup popup_opened") {
     case formElement.classList.value:
       formElement.classList.remove("popup_opened");
