@@ -1,6 +1,7 @@
 .card__remove {
   padding: 0;
   align-self: flex-end;
+<<<<<<< HEAD
   margin: 18px 15px 0 0;
   z-index: 1;
   width: 22px;
@@ -13,6 +14,19 @@
   background-color: transparent;
   transition: 0.2s;
   /* position: absolute; */
+=======
+  z-index: 1;
+  width: 22px;
+  height: 19px;
+  background-image: url("../../../images/button__remove.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: unset;
+  background-color: transparent;
+  transition: 0.2s;
+  position: absolute;
+>>>>>>> 8ce0733e9381e41b47b0f7a3d999606304807431
   top: 18px;
   right: 15px;
   outline: none;

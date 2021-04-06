@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 .popup__card-editor{
     display: flex;
+=======
+.popup__card-editor {
+  display: flex;
+>>>>>>> 8ce0733e9381e41b47b0f7a3d999606304807431
   flex-direction: column;
   width: 430px;
   align-self: center;
@@ -10,7 +15,14 @@
 }
 
 @media screen and (max-width: 597px) {
+<<<<<<< HEAD
     .popup__card-editor {
       width: 282px;
     }
   }
+=======
+  .popup__card-editor {
+    width: 282px;
+  }
+}
+>>>>>>> 8ce0733e9381e41b47b0f7a3d999606304807431
