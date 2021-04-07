@@ -1,31 +1,31 @@
-let formElement = document.querySelector(".popup");
+const formElement = document.querySelector(".popup");
 
-let profile = document.querySelector(".profile");
-let profileInfoEditBtn = profile.querySelector(".profile-info__edit-button");
-let nameInput = profile.querySelector(".profile-info__name");
-let jobInput = profile.querySelector(".profile-info__job");
-let popupAddPlaceBtn = document.querySelector(".profile__add-button");
+const profile = document.querySelector(".profile");
+const profileInfoEditBtn = profile.querySelector(".profile-info__edit-button");
+const nameInput = profile.querySelector(".profile-info__name");
+const jobInput = profile.querySelector(".profile-info__job");
+const popupAddPlaceBtn = document.querySelector(".profile__add-button");
 
-let popupExitBtn = formElement.querySelector(".popup__close");
-let popupNameInput = formElement.querySelector(".popup-data__input_type_name");
-let popupJobInput = formElement.querySelector(".popup-data__input_type_job");
+const popupExitBtn = formElement.querySelector(".popup__close");
+const popupNameInput = formElement.querySelector(".popup-data__input_type_name");
+const popupJobInput = formElement.querySelector(".popup-data__input_type_job");
 
-let placeCard = document.querySelector("#placeCard");
+const placeCard = document.querySelector("#placeCard");
 
-let cardContainer = document.querySelector(".places");
+const cardContainer = document.querySelector(".places");
 
-let newPlace = document.querySelector("#popupCardCreator");
+const newPlace = document.querySelector("#popupCardCreator");
 
-let popupCardExitBtn = newPlace.querySelector(".popup__close");
-let addNewCard = document.querySelector(".popup__card-editor");
+const popupCardExitBtn = newPlace.querySelector(".popup__close");
+const addNewCard = document.querySelector(".popup__card-editor");
 
-let popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
-let popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
+const popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
+const popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
 
-let popupImage = document.querySelector("#popupImage");
-let popupZoomedImage = popupImage.querySelector(".popup__image");
-let popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
-let popupPictureCloseBtn = popupImage.querySelector(".popup__close");
+const popupImage = document.querySelector("#popupImage");
+const popupZoomedImage = popupImage.querySelector(".popup__image");
+const popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
+const popupPictureCloseBtn = popupImage.querySelector(".popup__close");
 
 // хардкод карточек (сугубо для проверки :) )
 const initialCards = [
@@ -91,38 +91,42 @@ function createNewCard(item) {
 
 // попап увеличенной картинки
 function popupImageOpen(item) {
-  console.log(item);
-  console.log(popupImage);
-
   popupZoomedImage.src = item.link;
   popupZoomedImage.alt = item.name;
 
   popupPictureCaption.textContent = item.name;
 
-  popupImage.classList.add("popup_opened");
+  openPopup(popupImage);
+
+  // popupImage.classList.add("popup_opened");
+}
+
+//открыть попап
+function openPopup(popup){
+  popup.classList.add("popup_opened");
 }
 
 // инициализация карточки
 function initCard() {
-  let card = initialCards.map((item) => createNewCard(item));
+  const cardList = initialCards.map((item) => createNewCard(item));
 
-  cardContainer.append(...card);
+  cardContainer.append(...cardList);
 }
 
 // попап карточки
-function openCardPopup() {
+function openPopupCard() {
   popupCardTitle.value = null;
   popupCardURL.value = null;
 
-  newPlace.classList.add("popup_opened");
+  openPopup(newPlace);
 }
 
 // попап профиля
-function openPopup() {
+function openPopupProfile() {
   popupNameInput.value = nameInput.textContent;
   popupJobInput.value = jobInput.textContent;
 
-  formElement.classList.add("popup_opened");
+  openPopupCard(formElement);
 }
 
 // закрыть попап без сохранения изменений
@@ -150,10 +154,10 @@ function formSubmitHandler(evt) {
 function createOneMoreCard(evt) {
   evt.preventDefault();
 
-  let placeTitle = popupCardTitle.value;
-  let placeURL = popupCardURL.value;
+  const placeTitle = popupCardTitle.value;
+  const placeURL = popupCardURL.value;
 
-  let oneMoreCard = createNewCard({
+  const oneMoreCard = createNewCard({
     name: placeTitle,
     link: placeURL,
   });
@@ -164,9 +168,9 @@ function createOneMoreCard(evt) {
 
 initCard();
 
-profileInfoEditBtn.addEventListener("click", openPopup); //открыть попап профиля
+profileInfoEditBtn.addEventListener("click", openPopupProfile); //открыть попап профиля
 
-popupAddPlaceBtn.addEventListener("click", openCardPopup); //открыть попап создания новой карточки
+popupAddPlaceBtn.addEventListener("click", openPopupCard); //открыть попап создания новой карточки
 
 popupExitBtn.addEventListener("click", closePopup); //закрыть попап профиля без сохранения
 
