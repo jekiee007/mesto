@@ -28,36 +28,29 @@ const popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
 const popupPictureCloseBtn = popupImage.querySelector(".popup__close");
 
 // хардкод карточек (сугубо для проверки :) )
-const initialCards = [
-  {
+const initialCards = [{
     name: "Архыз",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
   {
     name: "Челябинская область",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
   },
   {
     name: "Иваново",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
   },
   {
     name: "Камчатка",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
   },
   {
     name: "Холмогорский район",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
   },
   {
     name: "Байкал",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
 
@@ -102,7 +95,7 @@ function popupImageOpen(item) {
 }
 
 //открыть попап
-function openPopup(popup){
+function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
 
@@ -126,18 +119,12 @@ function openPopupProfile() {
   popupNameInput.value = nameInput.textContent;
   popupJobInput.value = jobInput.textContent;
 
-  openPopupCard(formElement);
+  openPopup(formElement);
 }
 
 // закрыть попап без сохранения изменений
-function closePopup() {
-  switch ("popup popup_opened") {
-    case formElement.classList.value:
-      formElement.classList.remove("popup_opened");
-    case newPlace.classList.value:
-      newPlace.classList.remove("popup_opened");
-    default : popupImage.classList.remove("popup_opened");
-  }
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
 }
 
 // сохранение данных попапа профиля
@@ -147,7 +134,7 @@ function formSubmitHandler(evt) {
   nameInput.textContent = popupNameInput.value;
   jobInput.textContent = popupJobInput.value;
 
-  closePopup();
+  closePopup(formElement);
 }
 
 //создать еще одну карточку
@@ -163,7 +150,7 @@ function createOneMoreCard(evt) {
   });
 
   cardContainer.prepend(oneMoreCard);
-  closePopup();
+  closePopup(newPlace);
 }
 
 initCard();
@@ -172,12 +159,12 @@ profileInfoEditBtn.addEventListener("click", openPopupProfile); //открыть
 
 popupAddPlaceBtn.addEventListener("click", openPopupCard); //открыть попап создания новой карточки
 
-popupExitBtn.addEventListener("click", closePopup); //закрыть попап профиля без сохранения
+popupExitBtn.addEventListener("click", () => closePopup(formElement)); //закрыть попап профиля без сохранения
 
-popupCardExitBtn.addEventListener("click", closePopup); //закрыть попап карточки без сохранения
+popupCardExitBtn.addEventListener("click", () => closePopup(newPlace)); //закрыть попап карточки без сохранения
 
 addNewCard.addEventListener("submit", createOneMoreCard); //закрыть попап карточки с применением изменений
 
-popupPictureCloseBtn.addEventListener("click", closePopup); //закрыть попап картинки
+popupPictureCloseBtn.addEventListener("click", () => closePopup(popupImage)); //закрыть попап картинки
 
 formElement.addEventListener("submit", formSubmitHandler); //закрыть попап профиля применив изменения
