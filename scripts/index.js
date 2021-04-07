@@ -23,8 +23,9 @@ let popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
 let popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
 
 let popupImage = document.querySelector("#popupImage");
-let popupZoomedImage = popupImage.querySelector(".popup__zoomed-picture");
+let popupZoomedImage = popupImage.querySelector(".popup__image");
 let popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
+let popupPictureCloseBtn = popupImage.querySelector(".popup__close");
 
 // хардкод карточек (сугубо для проверки :) )
 const initialCards = [
@@ -96,9 +97,9 @@ function popupImageOpen(item) {
   popupZoomedImage.src = item.link;
   popupZoomedImage.alt = item.name;
 
-  popupPictureCaption.value = item.name;
+  popupPictureCaption.textContent = item.name;
 
-  popupImage.classList.add("popup__opened");
+  popupImage.classList.add("popup_opened");
 }
 
 // инициализация карточки
@@ -126,9 +127,13 @@ function openPopup() {
 
 // закрыть попап без сохранения изменений
 function closePopup() {
-  if (formElement.classList.value === "popup popup_opened") {
-    formElement.classList.remove("popup_opened");
-  } else newPlace.classList.remove("popup_opened");
+  switch ("popup popup_opened") {
+    case formElement.classList.value:
+      formElement.classList.remove("popup_opened");
+    case newPlace.classList.value:
+      newPlace.classList.remove("popup_opened");
+    default : popupImage.classList.remove("popup_opened");
+  }
 }
 
 // сохранение данных попапа профиля
@@ -168,5 +173,7 @@ popupExitBtn.addEventListener("click", closePopup); //закрыть попап 
 popupCardExitBtn.addEventListener("click", closePopup); //закрыть попап карточки без сохранения
 
 addNewCard.addEventListener("submit", createOneMoreCard); //закрыть попап карточки с применением изменений
+
+popupPictureCloseBtn.addEventListener("click", closePopup); //закрыть попап картинки
 
 formElement.addEventListener("submit", formSubmitHandler); //закрыть попап профиля применив изменения
