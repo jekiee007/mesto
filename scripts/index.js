@@ -7,8 +7,8 @@ let jobInput = profile.querySelector(".profile-info__job");
 let popupAddPlaceBtn = document.querySelector(".profile__add-button");
 
 let popupExitBtn = formElement.querySelector(".popup__close");
-let popupNameInput = formElement.querySelector(".popup-data__input_type_name");
-let popupJobInput = formElement.querySelector(".popup-data__input_type_job");
+let popupNameInput = formElement.querySelector(".popup__input_type_name");
+let popupJobInput = formElement.querySelector(".popup__input_type_job");
 
 let placeCard = document.querySelector("#placeCard");
 
@@ -19,8 +19,8 @@ let newPlace = document.querySelector("#popupCardCreator");
 let popupCardExitBtn = newPlace.querySelector(".popup__close");
 let addNewCard = document.querySelector(".popup__card-editor");
 
-let popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
-let popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
+let popupCardTitle = newPlace.querySelector(".popup__input_type_title");
+let popupCardURL = newPlace.querySelector(".popup__input_type_url");
 
 let popupImage = document.querySelector("#popupImage");
 let popupZoomedImage = popupImage.querySelector(".popup__image");
@@ -91,9 +91,6 @@ function createNewCard(item) {
 
 // попап увеличенной картинки
 function popupImageOpen(item) {
-  console.log(item);
-  console.log(popupImage);
-
   popupZoomedImage.src = item.link;
   popupZoomedImage.alt = item.name;
 

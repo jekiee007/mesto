@@ -46,11 +46,17 @@
         <div class="popup__profile-editor">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup-data" name="popupForm">
-                <input class="popup-data__input popup-data__input_type_name" name="popupTypeName" placeholder="Имя">
-                <input class="popup-data__input popup-data__input_type_job" name="popupTypeJob" placeholder="Работа">
-                <button class="popup__button-submit" type="submit">Сохранить</button>
+            <!-- Форма редактирования профиля -->
+            <form class="popup__form" name="popupForm" novalidate>
+                <input class="popup__input popup__input_type_name" name="popupTypeName" placeholder="Имя"
+                    type="text" id="inputName" minlength="2" maxlength="40" required>
+                <span class="popup__input_type_error"></span>
+                <input class="popup__input popup__input_type_job" name="popupTypeJob" placeholder="Работа"
+                    type="text" id="inputJob" minlength="2" maxlength="200" required>
+                <span class="popup__finput_type_error"></span>
+                <button class="popup__button" type="submit">Сохранить</button>
             </form>
+
         </div>
     </article>
 
@@ -59,13 +65,13 @@
         <div class="popup__card-editor">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup-data" name="popupForm">
-                <input class="popup-data__input popup-data__input_type_title" name="popupTypeTitle"
+            <form class="popup__form" name="popupForm">
+                <input class="popup__input popup__input_type_title" name="popupTypeTitle"
                     placeholder="Название">
-                <input class="popup-data__input popup-data__input_type_url" name="popupTypeURL"
+                <input class="popup__input popup__input_type_url" name="popupTypeURL"
                     placeholder="Ссылка на картинку">
                 <!-- <button class="popup__button-submit popup__button-submit_new-card" type="submit">Создать</button> -->
-                <button class="popup__button-submit " type="submit">Создать</button>
+                <button class="popup__button " type="submit">Создать</button>
             </form>
         </div>
     </div>
@@ -91,6 +97,7 @@
         </figure>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
