@@ -72,6 +72,7 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", popupCloseOnESC);
+  hideAllErrors();
 }
 
 // Функция создания карточкти
@@ -110,8 +111,6 @@ function popupImageOpen(item) {
   popupPictureCaption.textContent = item.name;
 
   openPopup(popupImage);
-
-  // popupImage.classList.add("popup_opened");
 }
 
 // инициализация карточки

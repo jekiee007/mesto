@@ -12,42 +12,39 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const checkInputValidity = (formElement, inputElement, config) => {
+const checkInputValidity = (formElement, inputElement, obj) => {
   if (!inputElement.validity.valid) {
     showInputError(
       formElement,
       inputElement,
       inputElement.validationMessage,
-      config
+      obj
     );
-  } else hideInputError(formElement, inputElement, config);
+  } else hideInputError(formElement, inputElement, obj);
 };
 
 const setEventListeners = (
   formElement,
-  { inputSelector, submitButtonSelector, ...config }
+  { inputSelector, submitButtonSelector, ...obj }
 ) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, config);
+  toggleButtonState(inputList, buttonElement, obj);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(inputList, buttonElement, config);
+      checkInputValidity(formElement, inputElement, obj);
+      toggleButtonState(inputList, buttonElement, obj);
     });
   });
 };
 
-const enableValidation = ({ formSelector, ...config }) => {
+const enableValidation = ({ formSelector, ...obj }) => {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
-    const fieldsetList = Array.from(document.querySelectorAll(formSelector));
-    fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset, config);
-    });
+      setEventListeners(formElement, obj);
   });
 };
 
@@ -69,6 +66,16 @@ const toggleButtonState = (
   }
 };
 
+const hideAllErrors = () => {
+  const forms = document.querySelectorAll('.popup__form');
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll('.popup__input');
+    inputs.forEach((input) => {
+      hideInputError(form, input);
+    });
+  });
+};
+
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -77,4 +84,3 @@ enableValidation({
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
-
