@@ -1,4 +1,4 @@
-.popup-data__input {
+.popup__input {
     display: flex;
     flex-direction: column;
     height: 27px;
@@ -11,18 +11,17 @@
     box-sizing: border-box;
   }
   
-  .popup-data__input::placeholder {
+  .popup__input::placeholder {
     color: #000;
     opacity: 1;
   }
 
-  .popup-data__input:nth-child(n + 2){
+  .popup__input:nth-child(n + 2){
     margin: 30px auto 0;
   }
   
   @media screen and (max-width: 597px) {
-    .popup-data__input {
+    .popup__input {
       width: 238px;
     }
   }
-  

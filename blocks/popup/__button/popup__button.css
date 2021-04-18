@@ -1,4 +1,4 @@
-.popup__button-submit {
+.popup__button {
   padding: unset;
   margin: 52px auto 37px;
   width: 358px;
@@ -15,12 +15,12 @@
   transition: opacity 0.3s ease;
 }
 
-.popup__button-submit:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.popup__button-submit:focus {
+.popup__button:focus {
   outline: none;
 }
 

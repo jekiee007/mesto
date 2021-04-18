@@ -7,8 +7,8 @@ const jobInput = profile.querySelector(".profile-info__job");
 const popupAddPlaceBtn = document.querySelector(".profile__add-button");
 
 const popupExitBtn = formElement.querySelector(".popup__close");
-const popupNameInput = formElement.querySelector(".popup-data__input_type_name");
-const popupJobInput = formElement.querySelector(".popup-data__input_type_job");
+const popupNameInput = formElement.querySelector(".popup__input_type_name");
+const popupJobInput = formElement.querySelector(".popup__input_type_job");
 
 const placeCard = document.querySelector("#placeCard");
 
@@ -19,8 +19,8 @@ const newPlace = document.querySelector("#popupCardCreator");
 const popupCardExitBtn = newPlace.querySelector(".popup__close");
 const addNewCard = document.querySelector(".popup__card-editor");
 
-const popupCardTitle = newPlace.querySelector(".popup-data__input_type_title");
-const popupCardURL = newPlace.querySelector(".popup-data__input_type_url");
+const popupCardTitle = newPlace.querySelector(".popup__input_type_title");
+const popupCardURL = newPlace.querySelector(".popup__input_type_url");
 
 const popupImage = document.querySelector("#popupImage");
 const popupZoomedImage = popupImage.querySelector(".popup__image");
@@ -53,6 +53,27 @@ const initialCards = [{
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+
+// закрытие попапа по нажатию ESC
+const popupCloseOnESC = (evt) => {
+  if (evt.key === "Escape"){
+    const popupOpened = document.querySelector(".popup_opened");
+    closePopup(popupOpened);
+  }
+}
+
+//открыть попап
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  document.addEventListener("keydown", popupCloseOnESC);
+}
+
+// закрыть попап без сохранения изменений
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", popupCloseOnESC);
+  hideAllErrors();
+}
 
 // Функция создания карточкти
 function createNewCard(item) {
@@ -90,13 +111,6 @@ function popupImageOpen(item) {
   popupPictureCaption.textContent = item.name;
 
   openPopup(popupImage);
-
-  // popupImage.classList.add("popup_opened");
-}
-
-//открыть попап
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
 }
 
 // инициализация карточки
@@ -122,10 +136,7 @@ function openPopupProfile() {
   openPopup(formElement);
 }
 
-// закрыть попап без сохранения изменений
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-}
+
 
 // сохранение данных попапа профиля
 function formSubmitHandler(evt) {
