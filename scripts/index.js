@@ -61,6 +61,14 @@ const initialCards = [
   },
 ];
 
+// закрытие попапа по нажатию ESC
+const popupCloseOnESC = (evt) => {
+  if (evt.key === "Escape"){
+    const popupOpened = document.querySelector(".popup_opened");
+    closePopup(popupOpened);
+  }
+}
+
 // Функция создания карточкти
 function createNewCard(item) {
   let newCard = placeCard.content.cloneNode(true);
