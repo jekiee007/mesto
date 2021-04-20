@@ -1,14 +1,14 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, obj) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("popup__input_type_error");
+  inputElement.classList.add(obj.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("popup__error_visible");
+  errorElement.classList.add(obj.errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, obj) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("popup__input_type_error");
-  errorElement.classList.remove("popup__error_visible");
+  inputElement.classList.remove(obj.inputErrorClass);
+  errorElement.classList.remove(obj.errorClass);
   errorElement.textContent = "";
 };
 
@@ -64,16 +64,6 @@ const toggleButtonState = (
   } else {
     buttonElement.classList.remove(inactiveButtonClass);
   }
-};
-
-const hideAllErrors = () => {
-  const forms = document.querySelectorAll('.popup__form');
-  forms.forEach((form) => {
-    const inputs = form.querySelectorAll('.popup__input');
-    inputs.forEach((input) => {
-      hideInputError(form, input);
-    });
-  });
 };
 
 enableValidation({
