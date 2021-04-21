@@ -29,7 +29,15 @@ const setEventListeners = (
 ) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
+
+  formElement.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && hasInvalidInput(inputList)) {
+      e.preventDefault();
+    }
+  });
+
   toggleButtonState(inputList, buttonElement, obj);
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, obj);
@@ -44,7 +52,7 @@ const enableValidation = ({ formSelector, ...obj }) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
-      setEventListeners(formElement, obj);
+    setEventListeners(formElement, obj);
   });
 };
 

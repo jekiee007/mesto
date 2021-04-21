@@ -60,12 +60,12 @@ popupImage.addEventListener("click", closePopupOnClick);
 
 // функция закрытия попапа по клику по оверлею
 function closePopupOnClick(e){
-  if(e.target !== this) return;
-  closePopup(this);
+  if(e.target !== e.currentTarget) return;
+  closePopup(e.currentTarget);
 }
 
 // закрытие попапа по нажатию ESC
-const popupCloseOnESC = (evt) => {
+const closePopuOnEscape = (evt) => {
   if (evt.key === "Escape"){
     const popupOpened = document.querySelector(".popup_opened");
     closePopup(popupOpened);
@@ -75,13 +75,13 @@ const popupCloseOnESC = (evt) => {
 //открыть попап
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", popupCloseOnESC);
+  document.addEventListener("keydown", closePopuOnEscape);
 }
 
 // закрыть попап без сохранения изменений
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", popupCloseOnESC);
+  document.removeEventListener("keydown", closePopuOnEscape);
 }
 
 // Функция создания карточкти
