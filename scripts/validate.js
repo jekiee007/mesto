@@ -24,20 +24,15 @@ const checkInputValidity = (formElement, inputElement, obj) => {
 };
 
 const setEventListeners = (
-  formElement, {
-    inputSelector,
-    submitButtonSelector,
-    ...obj
-  }
+  formElement,
+  { inputSelector, submitButtonSelector, ...obj }
 ) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
 
-  //закрыть попап карточки с применением изменений
-  addNewCard.addEventListener("submit", (e) => {
-    if (!hasInvalidInput(inputList)) {
-      createOneMoreCard(e);
-    }
+  formElement.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    buttonElement.classList.add(obj.inactiveButtonClass);
   });
 
   toggleButtonState(inputList, buttonElement, obj);
@@ -50,10 +45,7 @@ const setEventListeners = (
   });
 };
 
-const enableValidation = ({
-  formSelector,
-  ...obj
-}) => {
+const enableValidation = ({ formSelector, ...obj }) => {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
@@ -71,9 +63,8 @@ function hasInvalidInput(inputList) {
 
 const toggleButtonState = (
   inputList,
-  buttonElement, {
-    inactiveButtonClass
-  }
+  buttonElement,
+  { inactiveButtonClass }
 ) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(inactiveButtonClass);
