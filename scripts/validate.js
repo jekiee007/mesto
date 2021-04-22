@@ -33,8 +33,15 @@ const setEventListeners = (
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
 
+  //закрыть попап карточки с применением изменений
+  addNewCard.addEventListener("submit", (e) => {
+    if (!hasInvalidInput(inputList)) {
+      createOneMoreCard(e);
+    }
+  });
 
   toggleButtonState(inputList, buttonElement, obj);
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, obj);

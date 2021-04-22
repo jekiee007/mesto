@@ -59,14 +59,14 @@ popupCardCreator.addEventListener("click", closePopupOnClick);
 popupImage.addEventListener("click", closePopupOnClick);
 
 // функция закрытия попапа по клику по оверлею
-function closePopupOnClick(e) {
-  if (e.target !== this) return;
-  closePopup(this);
+function closePopupOnClick(e){
+  if(e.target !== e.currentTarget) return;
+  closePopup(e.currentTarget);
 }
 
 // закрытие попапа по нажатию ESC
-const closePopupOnEscape = (evt) => {
-  if (evt.key === "Escape") {
+const closePopuOnEscape = (evt) => {
+  if (evt.key === "Escape"){
     const popupOpened = document.querySelector(".popup_opened");
     closePopup(popupOpened);
   }
@@ -75,13 +75,13 @@ const closePopupOnEscape = (evt) => {
 //открыть попап
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closePopupOnEscape);
+  document.addEventListener("keydown", closePopuOnEscape);
 }
 
 // закрыть попап без сохранения изменений
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupOnEscape);
+  document.removeEventListener("keydown", closePopuOnEscape);
 }
 
 // Функция создания карточкти
@@ -183,7 +183,6 @@ popupExitBtn.addEventListener("click", () => closePopup(popupProfile)); //зак
 
 popupCardExitBtn.addEventListener("click", () => closePopup(popupCardCreator)); //закрыть попап карточки без сохранения
 
-addNewCard.addEventListener("submit", createOneMoreCard); //закрыть попап карточки с применением изменений
 
 popupPictureCloseBtn.addEventListener("click", () => closePopup(popupImage)); //закрыть попап картинки
 
