@@ -55,18 +55,18 @@ const initialCards = [{
 
 // закрытие попапа по клику по оверлею
 popupProfile.addEventListener("click", closePopupOnClick);
-newPlace.addEventListener("click", closePopupOnClick);
+popupCardCreator.addEventListener("click", closePopupOnClick);
 popupImage.addEventListener("click", closePopupOnClick);
 
 // функция закрытия попапа по клику по оверлею
-function closePopupOnClick(e){
-  if(e.target !== this) return;
+function closePopupOnClick(e) {
+  if (e.target !== this) return;
   closePopup(this);
 }
 
 // закрытие попапа по нажатию ESC
-const popupCloseOnESC = (evt) => {
-  if (evt.key === "Escape"){
+const closePopupOnEscape = (evt) => {
+  if (evt.key === "Escape") {
     const popupOpened = document.querySelector(".popup_opened");
     closePopup(popupOpened);
   }
@@ -75,13 +75,13 @@ const popupCloseOnESC = (evt) => {
 //открыть попап
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", popupCloseOnESC);
+  document.addEventListener("keydown", closePopupOnEscape);
 }
 
 // закрыть попап без сохранения изменений
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", popupCloseOnESC);
+  document.removeEventListener("keydown", closePopupOnEscape);
 }
 
 // Функция создания карточкти
