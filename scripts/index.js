@@ -183,6 +183,7 @@ popupExitBtn.addEventListener("click", () => closePopup(popupProfile)); //зак
 
 popupCardExitBtn.addEventListener("click", () => closePopup(popupCardCreator)); //закрыть попап карточки без сохранения
 
+addNewCard.addEventListener("submit", createOneMoreCard); //закрыть попап карточки с применением изменений
 
 popupPictureCloseBtn.addEventListener("click", () => closePopup(popupImage)); //закрыть попап картинки
 
