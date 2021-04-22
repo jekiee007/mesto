@@ -13,13 +13,13 @@ const placeCard = document.querySelector("#placeCard");
 
 const cardContainer = document.querySelector(".places");
 
-const newPlace = document.querySelector("#popupCardCreator");
+const popupCardCreator = document.querySelector("#popupCardCreator");
 
-const popupCardExitBtn = newPlace.querySelector(".popup__close");
+const popupCardExitBtn = popupCardCreator.querySelector(".popup__close");
 const addNewCard = document.querySelector(".popup__card-editor");
 
-const popupCardTitle = newPlace.querySelector(".popup__input_type_title");
-const popupCardURL = newPlace.querySelector(".popup__input_type_url");
+const popupCardTitle = popupCardCreator.querySelector(".popup__input_type_title");
+const popupCardURL = popupCardCreator.querySelector(".popup__input_type_url");
 
 const popupImage = document.querySelector("#popupImage");
 const popupZoomedImage = popupImage.querySelector(".popup__image");
@@ -55,7 +55,7 @@ const initialCards = [{
 
 // закрытие попапа по клику по оверлею
 popupProfile.addEventListener("click", closePopupOnClick);
-newPlace.addEventListener("click", closePopupOnClick);
+popupCardCreator.addEventListener("click", closePopupOnClick);
 popupImage.addEventListener("click", closePopupOnClick);
 
 // функция закрытия попапа по клику по оверлею
@@ -134,7 +134,7 @@ function openPopupCard() {
   popupCardTitle.value = null;
   popupCardURL.value = null;
 
-  openPopup(newPlace);
+  openPopup(popupCardCreator);
 }
 
 // попап профиля
@@ -170,7 +170,7 @@ function createOneMoreCard(evt) {
   });
 
   cardContainer.prepend(oneMoreCard);
-  closePopup(newPlace);
+  closePopup(popupCardCreator);
 }
 
 initCard();
@@ -181,9 +181,8 @@ popupAddPlaceBtn.addEventListener("click", openPopupCard); //открыть по
 
 popupExitBtn.addEventListener("click", () => closePopup(popupProfile)); //закрыть попап профиля без сохранения
 
-popupCardExitBtn.addEventListener("click", () => closePopup(newPlace)); //закрыть попап карточки без сохранения
+popupCardExitBtn.addEventListener("click", () => closePopup(popupCardCreator)); //закрыть попап карточки без сохранения
 
-addNewCard.addEventListener("submit", createOneMoreCard); //закрыть попап карточки с применением изменений
 
 popupPictureCloseBtn.addEventListener("click", () => closePopup(popupImage)); //закрыть попап картинки
 
