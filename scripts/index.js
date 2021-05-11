@@ -1,3 +1,6 @@
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+
 const profile = document.querySelector(".profile");
 const profileInfoEditBtn = profile.querySelector(".profile-info__edit-button");
 const nameInput = profile.querySelector(".profile-info__name");
@@ -18,7 +21,9 @@ const popupCardCreator = document.querySelector("#popupCardCreator");
 const popupCardExitBtn = popupCardCreator.querySelector(".popup__close");
 const addNewCard = document.querySelector(".popup__card-editor");
 
-const popupCardTitle = popupCardCreator.querySelector(".popup__input_type_title");
+const popupCardTitle = popupCardCreator.querySelector(
+  ".popup__input_type_title"
+);
 const popupCardURL = popupCardCreator.querySelector(".popup__input_type_url");
 
 const popupImage = document.querySelector("#popupImage");
@@ -27,7 +32,8 @@ const popupPictureCaption = popupImage.querySelector(".popup__picture-caption");
 const popupPictureCloseBtn = popupImage.querySelector(".popup__close");
 
 // хардкод карточек (сугубо для проверки :) )
-const initialCards = [{
+const initialCards = [
+  {
     name: "Архыз",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
@@ -53,24 +59,47 @@ const initialCards = [{
   },
 ];
 
+// создание карточки
+const renderCard = (data, wrap) => {
+  const card = new Card(data, placeCard, popupImageOpen);
+  wrap.append(card.getView());
+};
+
+// инициализация карточки
+function initCards() {
+  initialCards.forEach((e) => {
+    renderCard(e, cardContainer);
+  });
+}
+
+// попап увеличенной картинки
+function popupImageOpen(item) {
+  popupZoomedImage.src = item.link;
+  popupZoomedImage.alt = item.name;
+
+  popupPictureCaption.textContent = item.name;
+
+  openPopup(popupImage);
+}
+
 // закрытие попапа по клику по оверлею
 popupProfile.addEventListener("click", closePopupOnClick);
 popupCardCreator.addEventListener("click", closePopupOnClick);
 popupImage.addEventListener("click", closePopupOnClick);
 
 // функция закрытия попапа по клику по оверлею
-function closePopupOnClick(e){
-  if(e.target !== e.currentTarget) return;
+function closePopupOnClick(e) {
+  if (e.target !== e.currentTarget) return;
   closePopup(e.currentTarget);
 }
 
 // закрытие попапа по нажатию ESC
 const closePopuOnEscape = (evt) => {
-  if (evt.key === "Escape"){
+  if (evt.key === "Escape") {
     const popupOpened = document.querySelector(".popup_opened");
     closePopup(popupOpened);
   }
-}
+};
 
 //открыть попап
 function openPopup(popup) {
@@ -112,23 +141,6 @@ function createNewCard(item) {
   return newCard;
 }
 
-// попап увеличенной картинки
-function popupImageOpen(item) {
-  popupZoomedImage.src = item.link;
-  popupZoomedImage.alt = item.name;
-
-  popupPictureCaption.textContent = item.name;
-
-  openPopup(popupImage);
-}
-
-// инициализация карточки
-function initCard() {
-  const cardList = initialCards.map((item) => createNewCard(item));
-
-  cardContainer.append(...cardList);
-}
-
 // попап карточки
 function openPopupCard() {
   popupCardTitle.value = null;
@@ -145,8 +157,6 @@ function openPopupProfile() {
   openPopup(popupProfile);
 }
 
-
-
 // сохранение данных попапа профиля
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -157,7 +167,7 @@ function formSubmitHandler(evt) {
   closePopup(popupProfile);
 }
 
-//создать еще одну карточку
+//создать новую карточку
 function createOneMoreCard(evt) {
   evt.preventDefault();
 
@@ -173,7 +183,24 @@ function createOneMoreCard(evt) {
   closePopup(popupCardCreator);
 }
 
-initCard();
+initCards();
+
+const formSelector = ".popup__form";
+const formList = Array.from(document.querySelectorAll(formSelector));
+formList.forEach((formElement) => {
+  const validation = new FormValidator(
+    {
+      inputSelector: ".popup__input",
+      submitButtonSelector: ".popup__button",
+      inactiveButtonClass: "popup__button_disabled",
+      inputErrorClass: "popup__input_type_error",
+      errorClass: "popup__error_visible",
+    },
+    formElement
+  );
+  console.log(formElement);
+  validation.enableValidation();
+});
 
 profileInfoEditBtn.addEventListener("click", openPopupProfile); //открыть попап профиля
 
