@@ -3,26 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Место</title>
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
-    <title>Место</title>
 </head>
 
 <!-- тест -->
 
 <body class="page">
-    <form class="popup popup_closed">
-        <div class="popup__profile-editor">
-            <div class="popup__close"></div>
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <div class="popup__field">
-                <input class="popup__field_name" placeholder="Кусто"></input>
-                <input class="popup__field_spacialization" placeholder="Исследователь"></input>
-            </div>
-            <button class="popup__button-submit" >Cохранить</button>
-        </div>
-    </form>
+
     <div class="page__container">
         <header class="header">
             <img src="./images/logo__mesto.svg" alt="Лого место" class="header__logo">
@@ -32,151 +22,86 @@
 
             <section class="profile">
                 <img src="./images/profile__image.jpg" alt="Фото профиля" class="profile__avatar">
-                <div class="profile__info">
-                    <p class="profile__avatar_name">Жак-Ив Кусто</p>
-                    <button class="profile__info_edit-button"></button>
-                    <p class="profile__avatar_specialization">Исследователь океана</p>
+                <div class="profile-info">
+                    <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+                    <button class="profile-info__edit-button" type="button"></button>
+                    <p class="profile-info__job">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
 
             <section class="places">
-                <div class="card">
-                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Карачаевск</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Гора Эльбрус</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Гора Эльбрус</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
-                        class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Карачаево-Черкессия</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Гора Эльбрус</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
-                        class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Карачаево-Черкессия</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div> <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Гора Эльбрус</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
-                        class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Карачаево-Черкессия</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div> <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Гора Эльбрус</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Домбай</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия"
-                        class="card__image">
-                    <div class="card__place-options">
-                        <p class="card__place-name">Карачаево-Черкессия</p>
-                        <img src="./images/like__disable.svg" alt="лайк" class="card__like">
-                    </div>
-                </div>
             </section>
+
         </main>
 
         <footer class="footer">
-            <p>&#169 2021 Mesto Russia</p>
+            <p>&copy; 2021 Mesto Russia</p>
         </footer>
     </div>
-    <script src="./script/index.js"></script>
+
+    <!-- попап профиля-->
+    <article class="popup" id="popupProfile">
+        <div class="popup__profile-editor">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <!-- Форма редактирования профиля -->
+            <form class="popup__form" name="popupForm" novalidate>
+                <input class="popup__input popup__input_type_name" name="popupTypeName" placeholder="Имя" type="text"
+                    id="popupTypeName-input" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                <span class="popupTypeName-input-error"></span>
+                <input class="popup__input popup__input_type_job" name="popupTypeJob" placeholder="Работа" type="text"
+                    id="popupTypeJob-input" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                <span class="popupTypeJob-input-error"></span>
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+
+        </div>
+    </article>
+
+    <!-- попап карточки -->
+    <div class="popup" id="popupCardCreator">
+        <div class="popup__card-editor">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <!-- форма карточки -->
+            <form class="popup__form" name="popupForm" novalidate>
+                <input class="popup__input popup__input_type_title" name="title" type="text" id="title-input" minlength="2" maxlength="30"
+                    placeholder="Название" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                    <span class="title-input-error"></span>
+                <input class="popup__input popup__input_type_url" name="popupTypeURL" type="url" id="url-input" 
+                    placeholder="Ссылка на картинку" required>
+                    <span class="url-input-error"></span>
+                <button class="popup__button" type="submit">Создать</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- "место" - карточка -->
+    <template id="placeCard">
+        <div class="card">
+            <button type="button" class="card__remove"></button>
+            <img src="#" alt="#" class="card__image">
+            <div class="card__place-options">
+                <h2 class="card__place-name"></h2>
+                <button type="button" class="card__like"></button>
+            </div>
+        </div>
+    </template>
+
+    <!-- "место" - увеличинная фотография -->
+    <div class="popup popup_picture" id="popupImage">
+        <figure class="popup__zoomed-picture">
+            <button type="button" class="popup__close"></button>
+            <img src="#" alt="#" class="popup__image">
+            <figcaption class="popup__picture-caption"></figcaption>
+        </figure>
+    </div>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
+    <!-- <script src='./scripts/validate.js'></script> -->
 </body>
 
 </html>

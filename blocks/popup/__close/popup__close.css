@@ -1,5 +1,7 @@
 .popup__close {
   position: absolute;
+  background-color: transparent;
+  border: unset;
   background-position: center;
   background-size: 100%;
   background-image: url("../../../images/button__add-place.svg");
@@ -16,6 +18,10 @@
   opacity: 0.6;
   transform: rotate(225deg);
   cursor: pointer;
+}
+
+.popup__close:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 597px) {
