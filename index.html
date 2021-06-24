@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Место</title>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/index.css">
+</head>
+
+<!-- тест -->
+
+<body class="page">
+
+    <div class="page__container">
+        <header class="header">
+            <img src="./images/logo__mesto.svg" alt="Лого место" class="header__logo">
+        </header>
+
+        <main>
+
+            <section class="profile">
+                <img src="./images/profile__image.jpg" alt="Фото профиля" class="profile__avatar">
+                <div class="profile-info">
+                    <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+                    <button class="profile-info__edit-button" type="button"></button>
+                    <p class="profile-info__job">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
+
+            <section class="places">
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2021 Mesto Russia</p>
+        </footer>
+    </div>
+
+    <!-- попап профиля-->
+    <article class="popup" id="popupProfile">
+        <div class="popup__profile-editor">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <!-- Форма редактирования профиля -->
+            <form class="popup__form" name="popupForm" novalidate>
+                <input class="popup__input popup__input_type_name" name="popupTypeName" placeholder="Имя" type="text"
+                    id="popupTypeName-input" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                <span class="popupTypeName-input-error"></span>
+                <input class="popup__input popup__input_type_job" name="popupTypeJob" placeholder="Работа" type="text"
+                    id="popupTypeJob-input" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                <span class="popupTypeJob-input-error"></span>
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+
+        </div>
+    </article>
+
+    <!-- попап карточки -->
+    <div class="popup" id="popupCardCreator">
+        <div class="popup__card-editor">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <!-- форма карточки -->
+            <form class="popup__form" name="popupForm" novalidate>
+                <input class="popup__input popup__input_type_title" name="title" type="text" id="title-input" minlength="2" maxlength="30"
+                    placeholder="Название" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                    <span class="title-input-error"></span>
+                <input class="popup__input popup__input_type_url" name="popupTypeURL" type="url" id="url-input" 
+                    placeholder="Ссылка на картинку" required>
+                    <span class="url-input-error"></span>
+                <button class="popup__button" type="submit">Создать</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- "место" - карточка -->
+    <template id="placeCard">
+        <div class="card">
+            <button type="button" class="card__remove"></button>
+            <img src="#" alt="#" class="card__image">
+            <div class="card__place-options">
+                <h2 class="card__place-name"></h2>
+                <button type="button" class="card__like"></button>
+            </div>
+        </div>
+    </template>
+
+    <!-- "место" - увеличинная фотография -->
+    <div class="popup popup_picture" id="popupImage">
+        <figure class="popup__zoomed-picture">
+            <button type="button" class="popup__close"></button>
+            <img src="#" alt="#" class="popup__image">
+            <figcaption class="popup__picture-caption"></figcaption>
+        </figure>
+    </div>
+    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/Card.js"></script> -->
+</body>
+
+</html>
