@@ -1,10 +1,9 @@
 export class Card {
-  
-  constructor(data, cardSelector, onClick) {
+  constructor(data, cardSelector, handleCardClick) {
     this._text = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handlePreviewPicture = onClick;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -19,7 +18,6 @@ export class Card {
   // метод создания карточки
   getView() {
     const newCard = this._getTemplate();
-    // const newCard = this._cardSelector.content.cloneNode(true);
 
     const placeName = newCard.querySelector(".card__place-name");
     const cardImage = newCard.querySelector(".card__image");
@@ -38,25 +36,13 @@ export class Card {
 
   _setEventListeners(cardImage, cardRemoveBtn, likeBtn) {
     //открыть попап просмотр картинки
-    cardImage.addEventListener("click", () => {
-      this._popupZoomedImg();
-    });
-    // cardImage.addEventListener("click", this._popupZoomedImg.bind(this));
+    cardImage.addEventListener("click", this._handleCardClick);
 
     //удаление карточки
     cardRemoveBtn.addEventListener("click", this._cardDelete);
 
     //лайк карточки
     likeBtn.addEventListener("click", this._likeCard);
-  }
-
-  // метод просмотра картинки
-  _popupZoomedImg() {
-    const imageData = {
-      link: this._link,
-      name: this._text,
-    };
-    this._handlePreviewPicture(imageData);
   }
 
   // метод удаления карточки
