@@ -36,7 +36,9 @@ export class Card {
 
   _setEventListeners(cardImage, cardRemoveBtn, likeBtn) {
     //открыть попап просмотр картинки
-    cardImage.addEventListener("click", this._handleCardClick);
+    cardImage.addEventListener("click", () =>
+      this._handleCardClick(this._name, this._link)
+    );
 
     //удаление карточки
     cardRemoveBtn.addEventListener("click", this._cardDelete);

@@ -48,3 +48,11 @@ export const popupCardExitBtn = popupCardCreator.querySelector(".popup__close");
 
 export const popupImage = document.querySelector("#popupImage");
 export const popupPictureCloseBtn = popupImage.querySelector(".popup__close");
+
+export const formValidatorFields = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
