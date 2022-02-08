@@ -1,7 +1,6 @@
 import "../pages/index.css";
 //classes
 import { Card } from "../components/Card.js";
-import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -25,14 +24,12 @@ const popupUserInfo = new PopupWithForm("#popupProfile", (name, link) => {
   userInfo.setUserInfo(name, link);
 });
 
-//!!ошибку исправил!!
 popupUserInfo.setEventListeners();
 
 const popupWithImage = new PopupWithImage("#popupImage");
 
 popupWithImage.setEventListeners();
 
-//!!ошибку исправил!!
 const popupWithForm = new PopupWithForm("#popupCardCreator", (name, link) => {
   renderNewCard({ name, link });
 });
@@ -59,7 +56,6 @@ function createCard(data) {
 
 renderCard.renderItems();
 
-//!!ошибку исправил!!
 function renderNewCard({ name, link }) {
   const card = createCard({ name, link });
   renderCard.addItem(card);
