@@ -2,6 +2,7 @@ export class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._text = data.name;
     this._link = data.link;
+    this._likes = data.likes;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -17,14 +18,17 @@ export class Card {
 
   // метод создания карточки
   getView() {
+    console.log(this._likes);
     const newCard = this._getTemplate();
 
     const placeName = newCard.querySelector(".card__place-name");
     const cardImage = newCard.querySelector(".card__image");
     const cardRemoveBtn = newCard.querySelector(".card__remove");
     const likeBtn = newCard.querySelector(".card__like");
+    const likeCounter = newCard.querySelector(".card__like_counter");
 
     placeName.textContent = this._text;
+    likeCounter.textContent = this._likes.length;
 
     cardImage.alt = this._text;
     cardImage.src = this._link;

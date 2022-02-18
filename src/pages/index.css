@@ -43,6 +43,8 @@
 @import url("../blocks/card/__place-options/card__place-options.css");
 @import url("../blocks/card/__remove/card__remove.css");
 @import url("../blocks/card/__like/_active/card__like_active.css");
+@import url("../blocks/card/__button-container/card__button-container.css");
+@import url("../blocks/card/__like/_counter/card__like_counter.css");
 
 @import url("../blocks/footer/footer.css");
 
