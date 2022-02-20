@@ -15,6 +15,7 @@
 @import url("../blocks/popup/_picture/popup_picture.css");
 @import url("../blocks/popup/__card-editor/popup__card-editor.css");
 @import url("../blocks/popup/__card-editor/popup__card-editor.css");
+@import url("../blocks/profile/__avatar/profile__avatar-edit.css");
 
 @import url("../blocks/popup/__form/popup__form.css");
 @import url("../blocks/popup/__input/_type_job/popup__input_type_job.css");

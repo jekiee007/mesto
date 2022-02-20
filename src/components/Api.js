@@ -1,5 +1,8 @@
 export class Api {
-  constructor({ url, headers }) {
+  constructor({
+    url,
+    headers
+  }) {
     this._url = url;
     this._headers = headers;
   }
@@ -28,28 +31,61 @@ export class Api {
   }
 
   // добавление новой карточки
-  addCard(data){
+  addCard(data) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       'Content-Type': 'application/json',
       headers: this._headers,
-      body: JSON.stringify ({
+      body: JSON.stringify({
         name: data.name,
         link: data.link,
-       
-    })
+
+      })
+    }).then(this._handleResponse);
+  }
+
+  // удаление карточки
+  deleteCard(data) {
+    return fetch(`${this._url}/cards/${data}`, {
+      method: 'DELETE',
+      'Content-Type': 'application/json',
+      headers: this._headers,
     }).then(this._handleResponse);
   }
 
   // передача профиля на сервер
   setProfileInfo(data) {
-    fetch(`${this._url}/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.about,
       }),
-    });
+    }).then(this._handleResponse);
+  }
+
+  likeCard(data) {
+    return fetch(`${this._url}/cards/${data}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._handleResponse);
+  }
+
+  dislikeCard(data) {
+    return fetch(`${this._url}/cards/${data}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._handleResponse);
+  }
+
+  updateAvatar(data){
+    return fetch(`${this._url}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data,
+      }),
+    }).then(this._handleResponse);
   }
 }

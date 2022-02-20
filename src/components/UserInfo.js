@@ -12,7 +12,6 @@ export class UserInfo {
   }
 
   setUserInfo(name, link, id) {
-    console.log(name, link, id);
     this._name.textContent = name;
     this._job.textContent = link;
     this._profileId = id;

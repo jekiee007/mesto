@@ -17,6 +17,11 @@ export class PopupWithForm extends Popup {
     super.close();
   }
 
+  setButtonText(text) {
+    const buttonText = this._popup.querySelector(".popup__button");
+    buttonText.innerHTML = text;
+  }
+
   setEventListeners() {
     super.setEventListeners();
 
