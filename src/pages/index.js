@@ -7,6 +7,7 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Api } from "../components/Api.js";
+// import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 
 // constants
 import {
@@ -51,17 +52,17 @@ const getCardInfo = api
   })
   .catch((err) => console.log(`Ошибка загрузки карточек ${err}`));
 
-
 Promise.all([getUserInfo, getCardInfo])
   .then(([data, cards]) => {
     // console.log(data);
     // console.log(data.name);
-    userInfo.setUserInfo(data.name, data.about);
+    userInfo.setUserInfo(data.name, data.about, data._id);
     cards.forEach((card) => {
       renderNewCard({
         name: card.name,
         link: card.link,
         likes: card.likes,
+        id: card.owner._id,
       });
     });
   })
@@ -69,11 +70,12 @@ Promise.all([getUserInfo, getCardInfo])
     console.log(`Ошибка получения данных с сервера ${err}`);
   });
 
-const popupUserInfo = new PopupWithForm("#popupProfile", (name, link) => {
-  userInfo.setUserInfo(name, link);
+const popupUserInfo = new PopupWithForm("#popupProfile", (name, link, id) => {
+  userInfo.setUserInfo(name, link, id);
   api.setProfileInfo({
     name: name,
     about: link,
+    _id: id,
   });
 });
 popupUserInfo.setEventListeners();
@@ -103,6 +105,18 @@ const renderCard = new Section(
   ".places"
 );
 
+// //Попап подтверждения удаления карточки
+// const popupDeleteConfirmation = new PopupWithConfirmation("#deleteConfirmation");
+// popupDeleteConfirmation.setEventListeners();
+
+// // удаление карточки
+// function deleteCard(data){
+//   const cardDelete = popupDeleteConfirmation.open(data);
+  
+// }
+
+
+
 const userInfoValidation = new FormValidator(formValidatorFields, popupProfile);
 const createCardValidation = new FormValidator(
   formValidatorFields,
@@ -114,21 +128,23 @@ createCardValidation.enableValidation();
 // функция создания карточки
 function createCard(data) {
   const handleCardClick = () => popupWithImage.open(data);
-  const card = new Card(data, "#placeCard", handleCardClick);
+  const card = new Card(data, "#placeCard", handleCardClick, userInfo.getUserId());
   const cardElement = card.getView();
   return cardElement;
 }
 
 renderCard.renderItems();
 
-function renderNewCard({ name, link, likes }) {
+function renderNewCard({ name, link, likes, id }) {
   const card = createCard({
     name,
     link,
     likes,
+    id,
   });
   renderCard.addItem(card);
 }
+
 
 //открыть попап профиля
 profileInfoEditBtn.addEventListener("click", () => {

@@ -131,5 +131,42 @@
         <figcaption class="popup__picture-caption"></figcaption>
       </figure>
     </div>
+
+    <!-- Попап подтверждения удаления карточки -->
+    <div class="popup" id="deleteConfirmation">
+      <div class="popup__delete-picture-confirm">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="button" class="popup__close"></button>
+        <form class="popup__form popup__form-card-delete">
+          <button
+            class="popup__button popup__button_delete-confirm"
+            type="submit"
+          >
+            Да
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Попап обновления аватара -->
+    <div class="popup" id="popupAvatarUpdate">
+      <div class="popup__card-editor">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <!-- форма аватара -->
+        <form class="popup__form" name="popupForm" novalidate>
+          <input
+            class="popup__input popup__input_type_url"
+            name="popupTypeURL"
+            type="url"
+            id="url-input"
+            placeholder="Ссылка на картинку аватара"
+            required
+          />
+          <span class="url-input-error"></span>
+          <button class="popup__button" type="submit">Обновить</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

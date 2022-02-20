@@ -1,8 +1,10 @@
 export class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(data, cardSelector, handleCardClick, userId) {
     this._text = data.name;
     this._link = data.link;
     this._likes = data.likes;
+    this._cardOwnerId = data.id;
+    this._userId = userId;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -18,7 +20,6 @@ export class Card {
 
   // метод создания карточки
   getView() {
-    console.log(this._likes);
     const newCard = this._getTemplate();
 
     const placeName = newCard.querySelector(".card__place-name");
@@ -29,6 +30,11 @@ export class Card {
 
     placeName.textContent = this._text;
     likeCounter.textContent = this._likes.length;
+
+    // сокрытие кнопки удаления чужих карточек
+    if (this._userId !== this._cardOwnerId) {
+      cardRemoveBtn.classList.add("card__remove_hidden");
+    }
 
     cardImage.alt = this._text;
     cardImage.src = this._link;
