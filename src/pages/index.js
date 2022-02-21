@@ -19,7 +19,6 @@ import {
   popupJobInput,
   formValidatorFields,
   profileAvatarEdit,
-  profileAvatarImg,
   popupAvatarUpdate,
 } from "../utils/constants.js";
 
@@ -35,6 +34,7 @@ const api = new Api({
 const userInfo = new UserInfo({
   name: ".profile-info__name",
   job: ".profile-info__job",
+  avatar: ".profile__avatar",
 });
 
 // получаем данные о пользователе
@@ -55,18 +55,8 @@ const getCardInfo = api
 
 Promise.all([getUserInfo, getCardInfo])
   .then(([data, cards]) => {
-    userInfo.setUserInfo(data.name, data.about, data._id);
-    profileAvatarImg.src = data.avatar;
+    userInfo.setUserInfo(data);
     renderCard.renderItems(cards);
-    // cards.forEach((card) => {
-    //   renderNewCard({
-    //     name: card.name,
-    //     link: card.link,
-    //     likes: card.likes,
-    //     _id: card._id,
-    //     ownerId: card.owner._id,
-    //   });
-    // });
   })
   .catch((err) => {
     console.log(`Ошибка получения данных с сервера ${err}`);
@@ -74,13 +64,13 @@ Promise.all([getUserInfo, getCardInfo])
 
 const popupUserInfo = new PopupWithForm("#popupProfile", (name, link, id) => {
   popupUserInfo.setButtonText("Сохранение...");
-  userInfo.setUserInfo(name, link, id);
   api
     .setProfileInfo({
       name: name,
       about: link,
       _id: id,
     })
+    .then(userInfo.setUserInfo(res))
     .catch((err) => console.log(`Ошибка добавления карточки ${err}`))
     .finally(() => popupUserInfo.setButtonText("Сохранить"));
 });
@@ -113,7 +103,7 @@ const profileAvatar = new PopupWithForm("#popupAvatarUpdate", (link) => {
   api
     .updateAvatar(link)
     .then((res) => {
-      profileAvatarImg.src = res.avatar;
+      userInfo.setUserInfo(res);
     })
     .catch((err) => console.log(`Ошибка обновления аватарки ${err}`))
     .finally(() => profileAvatar.setButtonText("Обновить"));
@@ -170,13 +160,19 @@ function createCard(data) {
     popupDeleteConfirmation.open(data._id, cardElement);
   const handleCardLike = (likeActive) => {
     if (!likeActive) {
-      api.likeCard(data._id).then((res) => {
-        card.toggleLike(cardElement, res.likes);
-      });
+      api
+        .likeCard(data._id)
+        .then((res) => {
+          card.toggleLike(cardElement, res.likes);
+        })
+        .catch((err) => console.log(`Ошибка добавления лайка ${err}`));
     } else {
-      api.dislikeCard(data._id).then((res) => {
-        card.toggleLike(cardElement, res.likes);
-      });
+      api
+        .dislikeCard(data._id)
+        .then((res) => {
+          card.toggleLike(cardElement, res.likes);
+        })
+        .catch((err) => console.log(`Ошибка удаления лайка ${err}`));
     }
   };
   const card = new Card(
@@ -190,13 +186,6 @@ function createCard(data) {
   const cardElement = card.getView();
   return cardElement;
 }
-
-// renderCard.renderItems();
-
-// function renderNewCard(data) {
-//   const card = createCard(data);
-//   renderCard.addItem(card);
-// }
 
 //открыть попап профиля
 profileInfoEditBtn.addEventListener("click", () => {
