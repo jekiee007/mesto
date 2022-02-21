@@ -42,7 +42,6 @@ export class FormValidator {
     
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._buttonElement.classList.add(this._inactiveButtonClass);
     });
 
     this._toggleButtonState(this._inputList, this._buttonElement);

@@ -25,6 +25,8 @@ export const popupPictureCloseBtn = popupImage.querySelector(".popup__close");
 export const profileAvatarEdit = document.querySelector(".profile__avatar-edit");
 export const profileAvatarImg = document.querySelector(".profile__avatar");
 
+export const popupAvatarUpdate = document.querySelector("#popupAvatarUpdate");
+
 export const formValidatorFields = {
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",

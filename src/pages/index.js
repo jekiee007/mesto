@@ -1,29 +1,13 @@
 import "../pages/index.css";
 //classes
-import {
-  Card
-} from "../components/Card.js";
-import {
-  Section
-} from "../components/Section.js";
-import {
-  PopupWithImage
-} from "../components/PopupWithImage.js";
-import {
-  PopupWithForm
-} from "../components/PopupWithForm.js";
-import {
-  UserInfo
-} from "../components/UserInfo.js";
-import {
-  FormValidator
-} from "../components/FormValidator.js";
-import {
-  Api
-} from "../components/Api.js";
-import {
-  PopupWithConfirmation
-} from "../components/PopupWithConfirmation.js";
+import { Card } from "../components/Card.js";
+import { Section } from "../components/Section.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Api } from "../components/Api.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 
 // constants
 import {
@@ -36,6 +20,7 @@ import {
   formValidatorFields,
   profileAvatarEdit,
   profileAvatarImg,
+  popupAvatarUpdate,
 } from "../utils/constants.js";
 
 // URL и токен для подключения к серверу
@@ -72,16 +57,16 @@ Promise.all([getUserInfo, getCardInfo])
   .then(([data, cards]) => {
     userInfo.setUserInfo(data.name, data.about, data._id);
     profileAvatarImg.src = data.avatar;
-
-    cards.forEach((card) => {
-      renderNewCard({
-        name: card.name,
-        link: card.link,
-        likes: card.likes,
-        _id: card._id,
-        ownerId: card.owner._id,
-      });
-    });
+    renderCard.renderItems(cards);
+    // cards.forEach((card) => {
+    //   renderNewCard({
+    //     name: card.name,
+    //     link: card.link,
+    //     likes: card.likes,
+    //     _id: card._id,
+    //     ownerId: card.owner._id,
+    //   });
+    // });
   })
   .catch((err) => {
     console.log(`Ошибка получения данных с сервера ${err}`);
@@ -90,7 +75,8 @@ Promise.all([getUserInfo, getCardInfo])
 const popupUserInfo = new PopupWithForm("#popupProfile", (name, link, id) => {
   popupUserInfo.setButtonText("Сохранение...");
   userInfo.setUserInfo(name, link, id);
-  api.setProfileInfo({
+  api
+    .setProfileInfo({
       name: name,
       about: link,
       _id: id,
@@ -113,7 +99,7 @@ const popupWithForm = new PopupWithForm("#popupCardCreator", (name, link) => {
     .then((res) => {
       const data = {
         ...res,
-        ownerId: res.owner._id
+        ownerId: res.owner._id,
       };
       renderCard.addItem(createCard(data));
     })
@@ -122,10 +108,10 @@ const popupWithForm = new PopupWithForm("#popupCardCreator", (name, link) => {
 });
 popupWithForm.setEventListeners();
 
-
 const profileAvatar = new PopupWithForm("#popupAvatarUpdate", (link) => {
   profileAvatar.setButtonText("Сохранение...");
-  api.updateAvatar(link)
+  api
+    .updateAvatar(link)
     .then((res) => {
       profileAvatarImg.src = res.avatar;
     })
@@ -134,7 +120,8 @@ const profileAvatar = new PopupWithForm("#popupAvatarUpdate", (link) => {
 });
 profileAvatar.setEventListeners();
 
-const renderCard = new Section({
+const renderCard = new Section(
+  {
     items: [],
     renderer: (item) => {
       const card = createCard(item);
@@ -145,53 +132,71 @@ const renderCard = new Section({
 );
 
 //Попап подтверждения удаления карточки
-const popupDeleteConfirmation = new PopupWithConfirmation("#deleteConfirmation", (id, element) => {
-  // console.log(id, element);
-  api.deleteCard(id)
-    .then(() => {
-      popupDeleteConfirmation.close();
-      element.remove();
-    }).catch((err) => console.log(`Ошибка удаления карточки ${err}`));
-});
+const popupDeleteConfirmation = new PopupWithConfirmation(
+  "#deleteConfirmation",
+  (id, element) => {
+    // console.log(id, element);
+    api
+      .deleteCard(id)
+      .then(() => {
+        popupDeleteConfirmation.close();
+        element.remove();
+      })
+      .catch((err) => console.log(`Ошибка удаления карточки ${err}`));
+  }
+);
 popupDeleteConfirmation.setEventListeners();
 
 const userInfoValidation = new FormValidator(formValidatorFields, popupProfile);
+
 const createCardValidation = new FormValidator(
   formValidatorFields,
   popupCardCreator
 );
+
+const avatarValidation = new FormValidator(
+  formValidatorFields,
+  popupAvatarUpdate
+);
+
 userInfoValidation.enableValidation();
 createCardValidation.enableValidation();
+avatarValidation.enableValidation();
 
 // функция создания карточки
 function createCard(data) {
   const handleCardClick = () => popupWithImage.open(data);
-  const handleCardDelete = () => popupDeleteConfirmation.open(data._id, cardElement);
+  const handleCardDelete = () =>
+    popupDeleteConfirmation.open(data._id, cardElement);
   const handleCardLike = (likeActive) => {
     if (!likeActive) {
-      api.likeCard(data._id)
-        .then((res) => {
-          card.toggleLike(cardElement, res.likes);
-        })
+      api.likeCard(data._id).then((res) => {
+        card.toggleLike(cardElement, res.likes);
+      });
     } else {
-      api.dislikeCard(data._id)
-        .then((res) => {
-          card.toggleLike(cardElement, res.likes);
-        })
+      api.dislikeCard(data._id).then((res) => {
+        card.toggleLike(cardElement, res.likes);
+      });
     }
-
   };
-  const card = new Card(data, "#placeCard", handleCardClick, handleCardDelete, handleCardLike, userInfo.getUserId());
+  const card = new Card(
+    data,
+    "#placeCard",
+    handleCardClick,
+    handleCardDelete,
+    handleCardLike,
+    userInfo.getUserId()
+  );
   const cardElement = card.getView();
   return cardElement;
 }
 
-renderCard.renderItems();
+// renderCard.renderItems();
 
-function renderNewCard(data) {
-  const card = createCard(data);
-  renderCard.addItem(card);
-}
+// function renderNewCard(data) {
+//   const card = createCard(data);
+//   renderCard.addItem(card);
+// }
 
 //открыть попап профиля
 profileInfoEditBtn.addEventListener("click", () => {
@@ -206,7 +211,8 @@ profileInfoEditBtn.addEventListener("click", () => {
 
 // слушатель события клика по аватарке
 profileAvatarEdit.addEventListener("click", () => {
-  createCardValidation.resetValidation();
+  avatarValidation.resetValidation();
+
   profileAvatar.open();
 });
 
