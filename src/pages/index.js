@@ -108,6 +108,7 @@ const profileAvatar = new PopupWithForm("#popupAvatarUpdate", (link) => {
     .updateAvatar(link)
     .then((res) => {
       userInfo.setUserInfo(res);
+      profileAvatar.close();
     })
     .catch((err) => console.log(`Ошибка обновления аватарки ${err}`))
     .finally(() => profileAvatar.setButtonText("Обновить"));
