@@ -70,7 +70,10 @@ const popupUserInfo = new PopupWithForm("#popupProfile", (name, link, id) => {
       about: link,
       _id: id,
     })
-    .then(userInfo.setUserInfo(res))
+    .then((res) => {
+      userInfo.setUserInfo(res);
+      popupUserInfo.close();
+    })
     .catch((err) => console.log(`Ошибка добавления карточки ${err}`))
     .finally(() => popupUserInfo.setButtonText("Сохранить"));
 });
@@ -92,6 +95,7 @@ const popupWithForm = new PopupWithForm("#popupCardCreator", (name, link) => {
         ownerId: res.owner._id,
       };
       renderCard.addItem(createCard(data));
+      popupWithForm.close();
     })
     .catch((err) => console.log(`Ошибка добавления карточки ${err}`))
     .finally(() => popupWithForm.setButtonText("Создать"));
@@ -175,6 +179,7 @@ function createCard(data) {
         .catch((err) => console.log(`Ошибка удаления лайка ${err}`));
     }
   };
+
   const card = new Card(
     data,
     "#placeCard",
